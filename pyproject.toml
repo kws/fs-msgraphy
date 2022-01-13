@@ -1,0 +1,29 @@
+[tool.poetry]
+name = "fs-msgraphy"
+version = "0.1.0"
+description = "A PyFilesystem implementation for the MS Graph API based on the MSGraphy library."
+authors = ["Kaj Siebert <kaj@k-si.com>"]
+license = "MIT"
+packages = [
+  { include = "msgraphyfs" },
+]
+
+[tool.poetry.plugins."fs.opener"]
+o365 = "msgraphyfs.opener:MSGraphyFSOpener"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+fs = "^2.4.14"
+msgraphy = "^0.3.2"
+python-dateutil = "^2.8.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+ipython = "^7.31.0"
+coverage = "^6.2"
+bump2version = "^1.0.1"
+python-dotenv = "^0.19.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
